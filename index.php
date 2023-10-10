@@ -168,6 +168,24 @@ require 'cek.php';
 Tambah Stock Barang
 </button>
     <div class="card-body">
+
+    <?php  
+        $ambildatastock = mysqli_query($conn,"SELECT * FROM stock WHERE stock < 1");
+
+        while($fetch=mysqli_fetch_array($ambildatastock)){
+            $barang = $fetch['namabarang'];
+            ?>
+        <div class="alert alert-danger alert-dismissible">
+            <button type="button" class="close" data-dismiss="alert">&times;</button>
+            <strong>Perhatian!</strong> Stock <?=$barang;?> Telah Habis.
+        </div>
+        <?php
+        }
+
+    ?>
+
+
+
         <div class="table-responsive">
             <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
                 <thead>
