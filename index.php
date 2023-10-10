@@ -167,6 +167,8 @@ require 'cek.php';
 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
 Tambah Stock Barang
 </button>
+<br>
+<a href="export.php" class="btn btn-info">Export Data</a>
     <div class="card-body">
 
     <?php  
@@ -298,6 +300,7 @@ Tambah Stock Barang
         <div class="modal-header">
           <h4 class="modal-title">Tambah Barang</h4>
           <button type="button" class="close" data-dismiss="modal">&times;</button>
+
         </div>
         
         <!-- Modal body -->
