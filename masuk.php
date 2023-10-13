@@ -77,6 +77,17 @@
             </li>
 
             <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Barang Keluar -->
+            <li class="nav-item">
+                <a class="nav-link" href="admin.php">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Kelola Admin</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
             <hr class="sidebar-divider d-none d-md-block">
 
             <!-- Sidebar Toggler (Sidebar) -->

@@ -220,4 +220,52 @@
         }
     }
 
+    // menambah admin baru
+    if(isset($_POST['addadmin'])){
+        $email = $_POST['email'];
+        $password = $_POST['password'];
+
+        $queryinsert = mysqli_query($conn, "INSERT INTO login (email,password) VALUES ('$email','$password')");
+
+        if($queryinsert) {
+            // if berhasil
+            header('Location:admin.php');
+
+        } else {
+            // kalau gagal insert ke db
+            header('Location:admin.php');
+        }
+    }
+
+    // edit data admin
+    if(isset($_POST['updateadmin'])) {
+        $emailbaru = $_POST['emailadmin'];
+        $passwordbaru = $_POST['passwordbaru'];
+        $idnya = $_POST['id'];
+
+        $queryupdate = mysqli_query($conn, "UPDATE login SET email='$emailbaru', password='$passwordbaru' WHERE iduser='$idnya'");
+
+        if($queryupdate){
+            header('Location:admin.php');
+        
+        } else {
+            header('Location:admin.php');    
+        
+        }
+    }
+
+    // hapus admin
+    if(isset($_POST['hapusadmin'])) {
+        $id = $_POST['id'];
+
+        $querydelete = mysqli_query($conn, "DELETE FROM login WHERE iduser='$id'");
+    
+        if($querydelete){
+            header('Location:admin.php');
+        
+        } else {
+            header('Location:admin.php');    
+        
+        }
+    }
 ?>
