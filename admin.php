@@ -1,93 +1,94 @@
 <?php
-    require 'function.php';
-    require 'cek.php';
+require 'function.php';
+require 'cek.php';
 ?>
 
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-        <meta name="description" content="">
-        <meta name="author" content="">
-        <title>Kelola Admin - Toko Adai</title>
 
-        <!-- Custom fonts for this template-->
-        <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
-        <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
+<head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="">
+    <title>Kelola Admin - Toko Adai</title>
 
-        <!-- Custom styles for this template-->
-        <link href="css/sb-admin-2.min.css" rel="stylesheet">
+    <!-- Custom fonts for this template-->
+    <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
+    <link href="https://fonts.googleapis.com/css?family=Nunito:200,200i,300,300i,400,400i,600,600i,700,700i,800,800i,900,900i" rel="stylesheet">
 
-    </head>
+    <!-- Custom styles for this template-->
+    <link href="css/sb-admin-2.min.css" rel="stylesheet">
 
-    <body id="page-top">
-        <!-- Page Wrapper -->
-        <div id="wrapper">
-            <!-- Sidebar -->
-            <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
-                <!-- Sidebar - Toko Adai -->
-                <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
-                    <div class="sidebar-brand-icon rotate-n-15">
-                        <i class="fas fa-laugh-wink"></i>
-                    </div>
-                    <div class="sidebar-brand-text mx-3">Toko Adai</div>
-                </a>
+</head>
 
-                <!-- Divider -->
-                <hr class="sidebar-divider my-0">
-
-                <!-- Nav Item - Stock Barang -->
-                <li class="nav-item">
-                    <a class="nav-link" href="index.php">
-                        <i class="fas fa-clipboard-list"></i>
-                        <span>Stock Barang</span>
-                    </a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider my-0">
-
-                <!-- Nav Item - Barang Masuk -->
-                <li class="nav-item">
-                    <a class="nav-link" href="masuk.php">
-                        <i class="fas fa-cloud-download-alt"></i>
-                        <span>Barang Masuk</span>
-                    </a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider my-0">
-
-                <!-- Nav Item - Barang Keluar -->
-                <li class="nav-item">
-                    <a class="nav-link" href="keluar.php">
-                        <i class="fas fa-cloud-upload-alt"></i>
-                        <span>Barang Keluar</span>
-                    </a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider my-0">
-
-                <!-- Nav Item - Barang Keluar -->
-                <li class="nav-item active">
-                    <a class="nav-link" href="admin.php">
-                        <i class="fas fa-fw fa-book"></i>
-                        <span>Kelola Admin</span>
-                    </a>
-                </li>
-
-                <!-- Divider -->
-                <hr class="sidebar-divider d-none d-md-block">
-
-                <!-- Sidebar Toggler (Sidebar) -->
-                <div class="text-center d-none d-md-inline">
-                    <button class="rounded-circle border-0" id="sidebarToggle"></button>
+<body id="page-top">
+    <!-- Page Wrapper -->
+    <div id="wrapper">
+        <!-- Sidebar -->
+        <ul class="navbar-nav bg-gradient-primary sidebar sidebar-dark accordion" id="accordionSidebar">
+            <!-- Sidebar - Toko Adai -->
+            <a class="sidebar-brand d-flex align-items-center justify-content-center" href="index.html">
+                <div class="sidebar-brand-icon rotate-n-15">
+                    <i class="fas fa-laugh-wink"></i>
                 </div>
+                <div class="sidebar-brand-text mx-3">Toko Adai</div>
+            </a>
 
-            </ul>
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Stock Barang -->
+            <li class="nav-item">
+                <a class="nav-link" href="index.php">
+                    <i class="fas fa-clipboard-list"></i>
+                    <span>Stock Barang</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Barang Masuk -->
+            <li class="nav-item">
+                <a class="nav-link" href="masuk.php">
+                    <i class="fas fa-cloud-download-alt"></i>
+                    <span>Barang Masuk</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Barang Keluar -->
+            <li class="nav-item">
+                <a class="nav-link" href="keluar.php">
+                    <i class="fas fa-cloud-upload-alt"></i>
+                    <span>Barang Keluar</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - Barang Keluar -->
+            <li class="nav-item active">
+                <a class="nav-link" href="admin.php">
+                    <i class="fas fa-fw fa-book"></i>
+                    <span>Kelola Admin</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider d-none d-md-block">
+
+            <!-- Sidebar Toggler (Sidebar) -->
+            <div class="text-center d-none d-md-inline">
+                <button class="rounded-circle border-0" id="sidebarToggle"></button>
+            </div>
+
+        </ul>
         <!-- End of Sidebar -->
 
         <!-- Content Wrapper -->
@@ -105,11 +106,9 @@
                     </button>
 
                     <!-- Topbar Search -->
-                    <form
-                        class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
+                    <form class="d-none d-sm-inline-block form-inline mr-auto ml-md-3 my-2 my-md-0 mw-100 navbar-search">
                         <div class="input-group">
-                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..."
-                                aria-label="Search" aria-describedby="basic-addon2">
+                            <input type="text" class="form-control bg-light border-0 small" placeholder="Search for..." aria-label="Search" aria-describedby="basic-addon2">
                             <div class="input-group-append">
                                 <button class="btn btn-primary" type="button">
                                     <i class="fas fa-search fa-sm"></i>
@@ -122,15 +121,12 @@
 
                         <!-- Nav Item - User Information -->
                         <li class="nav-item dropdown no-arrow">
-                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button"
-                                data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['email'];?></span>
-                                <img class="img-profile rounded-circle"
-                                    src="img/undraw_profile.svg">
+                            <a class="nav-link dropdown-toggle" href="#" id="userDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                                <span class="mr-2 d-none d-lg-inline text-gray-600 small"><?php echo $_SESSION['email']; ?></span>
+                                <img class="img-profile rounded-circle" src="img/undraw_profile.svg">
                             </a>
                             <!-- Dropdown - User Information -->
-                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in"
-                                aria-labelledby="userDropdown">
+                            <div class="dropdown-menu dropdown-menu-right shadow animated--grow-in" aria-labelledby="userDropdown">
                                 <div class="dropdown-divider"></div>
                                 <a class="dropdown-item" href="#" data-toggle="modal" data-target="#logoutModal">
                                     <i class="fas fa-sign-out-alt fa-sm fa-fw mr-2 text-gray-400"></i>
@@ -155,152 +151,152 @@
                     <!-- Content Row -->
                     <div class="row">
 
-                    <!-- Begin Page Content -->
-                <div class="container-fluid">
+                        <!-- Begin Page Content -->
+                        <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <p class="mb-4">Jumlah Admin saat ini.</p>
+                            <!-- Page Heading -->
+                            <p class="mb-4">Jumlah Admin saat ini.</p>
 
-                <!-- DataTales Example -->
-                <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Tabel Data Kelola Admin</h6>
-                    </div>
+                            <!-- DataTales Example -->
+                            <div class="card shadow mb-4">
+                                <div class="card-header py-3">
+                                    <h6 class="m-0 font-weight-bold text-primary">Tabel Data Kelola Admin</h6>
+                                </div>
 
-                <!-- Button to Open the Modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                Tambah Admin
-                </button>
-                <br>
-               
-                    <div class="card-body">
+                                <!-- Button to Open the Modal -->
+                                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
+                                    Tambah Admin
+                                </button>
+                                <br>
+
+                                <div class="card-body">
 
 
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Email Admin</th>
-                                
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                                    <div class="table-responsive">
+                                        <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                                            <thead>
+                                                <tr>
+                                                    <th>No</th>
+                                                    <th>Email Admin</th>
 
-                            <?php
-                            $ambilsemuadataadmin = mysqli_query($conn, "SELECT * FROM login");
-                            $i = 1;
-                            while ($data = mysqli_fetch_array($ambilsemuadataadmin)) {
-                                $em = $data['email'];
-                                $iduser = $data['iduser'];
-                                $pw = $data['password'];
-                               
-                            ?>
+                                                    <th>Aksi</th>
+                                                </tr>
+                                            </thead>
+                                            <tbody>
 
-                            <tr>
-                                <td><?=$i++;?></td>
-                                <td><?=$em;?></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?=$iduser;?>">Edit</button>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?=$iduser;?>">Delete</button>
-                                </td>
-                            </tr>
+                                                <?php
+                                                $ambilsemuadataadmin = mysqli_query($conn, "SELECT * FROM login");
+                                                $i = 1;
+                                                while ($data = mysqli_fetch_array($ambilsemuadataadmin)) {
+                                                    $em = $data['email'];
+                                                    $iduser = $data['iduser'];
+                                                    $pw = $data['password'];
 
-                            <!-- Edit Modal -->
-                            <div class="modal fade" id="edit<?=$iduser;?>">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                    
-                                        <!-- Modal Header -->
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Edit Admin</h4>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
-                                        
-                                        <!-- Modal body -->
-                                        <form method="post">
-                                            <div class="modal-body">
-                                                <input type="email" name="emailadmin" value="<?=$em; ?>" class="form-control" placeholder="Email" required>
-                                                <br>
-                                                <input type="password" name="passwordbaru" class="form-control" value="<?=$pw; ?>" placeholder="Password">
-                                                <br>
-                                                <input type="hidden" name="id" value="<?=$iduser;?>">
-                                                <button type="submit" class="btn btn-primary" name="updateadmin">Submit</button>
-                                            </div>
-                                        </form>
+                                                ?>
+
+                                                    <tr>
+                                                        <td><?= $i++; ?></td>
+                                                        <td><?= $em; ?></td>
+                                                        <td>
+                                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $iduser; ?>">Edit</button>
+                                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $iduser; ?>">Delete</button>
+                                                        </td>
+                                                    </tr>
+
+                                                    <!-- Edit Modal -->
+                                                    <div class="modal fade" id="edit<?= $iduser; ?>">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+
+                                                                <!-- Modal Header -->
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title">Edit Admin</h4>
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                </div>
+
+                                                                <!-- Modal body -->
+                                                                <form method="post">
+                                                                    <div class="modal-body">
+                                                                        <input type="email" name="emailadmin" value="<?= $em; ?>" class="form-control" placeholder="Email" required>
+                                                                        <br>
+                                                                        <input type="password" name="passwordbaru" class="form-control" value="<?= $pw; ?>" placeholder="Password">
+                                                                        <br>
+                                                                        <input type="hidden" name="id" value="<?= $iduser; ?>">
+                                                                        <button type="submit" class="btn btn-primary" name="updateadmin">Submit</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                    <!-- Delete Modal -->
+                                                    <div class="modal fade" id="delete<?= $iduser; ?>">
+                                                        <div class="modal-dialog">
+                                                            <div class="modal-content">
+
+                                                                <!-- Modal Header -->
+                                                                <div class="modal-header">
+                                                                    <h4 class="modal-title">Hapus Admin</h4>
+                                                                    <button type="button" class="close" data-dismiss="modal">&times;</button>
+                                                                </div>
+
+                                                                <!-- Modal body -->
+                                                                <form method="post">
+                                                                    <div class="modal-body">
+                                                                        Apakah Anda yakin ingin menghapus <?= $em; ?>?
+                                                                        <input type="hidden" name="id" value="<?= $iduser; ?>">
+                                                                        <br><br>
+                                                                        <button type="submit" class="btn btn-danger" name="hapusadmin">Hapus</button>
+                                                                    </div>
+                                                                </form>
+                                                            </div>
+                                                        </div>
+                                                    </div>
+
+                                                <?php
+                                                };
+                                                ?>
+
+                                            </tbody>
+                                        </table>
                                     </div>
                                 </div>
                             </div>
+                        </div>
+                        <!-- The Modal -->
+                        <div class="modal fade" id="myModal">
+                            <div class="modal-dialog">
+                                <div class="modal-content">
 
-                            <!-- Delete Modal -->
-                            <div class="modal fade" id="delete<?=$iduser;?>">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                    
-                                        <!-- Modal Header -->
-                                        <div class="modal-header">
-                                        <h4 class="modal-title">Hapus Admin</h4>
+                                    <!-- Modal Header -->
+                                    <div class="modal-header">
+                                        <h4 class="modal-title">Tambah Admin</h4>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
-                                        
-                                        <!-- Modal body -->
-                                        <form method="post">
-                                            <div class="modal-body">
-                                                Apakah Anda yakin ingin menghapus <?=$em;?>?
-                                                <input type="hidden" name="id" value="<?=$iduser;?>">
-                                                <br><br>
-                                                <button type="submit" class="btn btn-danger" name="hapusadmin">Hapus</button>
-                                            </div>
-                                        </form>
                                     </div>
+
+                                    <!-- Modal body -->
+                                    <form method="post">
+                                        <div class="modal-body">
+                                            <input type="email" name="email" placeholder="Email" class="form-control" required>
+                                            <br>
+                                            <input type="password" name="password" placeholder="Password" class="form-control" required>
+                                        </div>
+
+                                        <!-- Modal footer -->
+                                        <div class="modal-footer">
+                                            <button type="submit" class="btn btn-primary" name="addadmin">Submit</button>
+                                            <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
+                                        </div>
+                                    </form>
                                 </div>
                             </div>
-                            
-                            <?php
-                            };
-                            ?>
-  
-                        </tbody>
-                    </table>
-                </div>
-            </div>
-        </div>
-    </div>
-    <!-- The Modal -->
-    <div class="modal fade" id="myModal">
-        <div class="modal-dialog">
-            <div class="modal-content">
-        
-                <!-- Modal Header -->
-                <div class="modal-header">
-                    <h4 class="modal-title">Tambah Admin</h4>
-                    <button type="button" class="close" data-dismiss="modal">&times;</button>
-                </div>
-                
-                <!-- Modal body -->
-                <form method="post">
-                    <div class="modal-body">
-                        <input type="email" name="email" placeholder="Email" class="form-control" required>
-                        <br>
-                        <input type="password" name="password" placeholder="Password" class="form-control" required>
-                    </div>
+                        </div>
 
-                    <!-- Modal footer -->
-                    <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" name="addadmin">Submit</button>
-                        <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
-                </form>
-            </div>
-        </div>
-    </div>
-
-    </div>
-    <!-- End of Main Content -->
-        <!-- /.container-fluid -->
-        </div>
-            <!-- End of Main Content -->
+                    <!-- End of Main Content -->
+                    <!-- /.container-fluid -->
+                </div>
+                <!-- End of Main Content -->
 
                 <!-- Footer -->
                 <footer class="sticky-footer bg-white">
@@ -359,6 +355,6 @@
         <script src="js/demo/chart-area-demo.js"></script>
         <script src="js/demo/chart-pie-demo.js"></script>
 
-    </body>
+</body>
 
 </html>
