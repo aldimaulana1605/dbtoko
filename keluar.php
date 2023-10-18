@@ -47,7 +47,7 @@
                 <!-- Nav Item - Stock Barang -->
                 <li class="nav-item">
                     <a class="nav-link" href="index.php">
-                        <i class="fas fa-fw fa-tachometer-alt"></i>
+                        <i class="fas fa-clipboard-list"></i>
                         <span>Stock Barang</span>
                     </a>
                 </li>
@@ -58,7 +58,7 @@
                 <!-- Nav Item - Barang Masuk -->
                 <li class="nav-item">
                     <a class="nav-link" href="masuk.php">
-                        <i class="fas fa-fw fa-cog"></i>
+                        <i class="fas fa-cloud-download-alt"></i>
                         <span>Barang Masuk</span>
                     </a>
                 </li>
@@ -69,7 +69,7 @@
                 <!-- Nav Item - Barang Keluar -->
                 <li class="nav-item active">
                     <a class="nav-link" href="keluar.php">
-                        <i class="fas fa-fw fa-wrench"></i>
+                        <i class="fas fa-cloud-upload-alt"></i>
                         <span>Barang Keluar</span>
                     </a>
                 </li>

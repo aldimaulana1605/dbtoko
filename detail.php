@@ -1,6 +1,16 @@
 <?php
     require 'function.php';
     require 'cek.php';
+
+    //Dapetin ID Barang yg di passing di halaman sebelumnya
+    $idbarang = $_GET['id']; //get id barang
+    //Get informasi barang berdasarkan database
+    $get = mysqli_query($conn,"SELECT * FROM stock where idbarang='$idbarang'");
+    $fetch = mysqli_fetch_assoc($get);
+    // set variable
+    $namabarang = $fetch['namabarang'];
+    $deskripsi = $fetch['deskripsi'];
+    $stock = $fetch['stock'];
 ?>
 
 <!DOCTYPE html>
@@ -11,7 +21,7 @@
         <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
         <meta name="description" content="">
         <meta name="author" content="">
-        <title>Kelola Admin - Toko Adai</title>
+        <title>Stock Barang - Toko Adai</title>
 
         <!-- Custom fonts for this template-->
         <link href="vendor/fontawesome-free/css/all.min.css" rel="stylesheet" type="text/css">
@@ -39,9 +49,9 @@
                 <hr class="sidebar-divider my-0">
 
                 <!-- Nav Item - Stock Barang -->
-                <li class="nav-item">
+                <li class="nav-item active">
                     <a class="nav-link" href="index.php">
-                        <i class="fas fa-clipboard-list"></i>
+                        <i class="fas fa-fw fa-tachometer-alt"></i>
                         <span>Stock Barang</span>
                     </a>
                 </li>
@@ -52,7 +62,7 @@
                 <!-- Nav Item - Barang Masuk -->
                 <li class="nav-item">
                     <a class="nav-link" href="masuk.php">
-                        <i class="fas fa-cloud-download-alt"></i>
+                        <i class="fas fa-fw fa-cog"></i>
                         <span>Barang Masuk</span>
                     </a>
                 </li>
@@ -63,7 +73,7 @@
                 <!-- Nav Item - Barang Keluar -->
                 <li class="nav-item">
                     <a class="nav-link" href="keluar.php">
-                        <i class="fas fa-cloud-upload-alt"></i>
+                        <i class="fas fa-fw fa-wrench"></i>
                         <span>Barang Keluar</span>
                     </a>
                 </li>
@@ -72,7 +82,7 @@
                 <hr class="sidebar-divider my-0">
 
                 <!-- Nav Item - Barang Keluar -->
-                <li class="nav-item active">
+                <li class="nav-item">
                     <a class="nav-link" href="admin.php">
                         <i class="fas fa-fw fa-book"></i>
                         <span>Kelola Admin</span>
@@ -149,121 +159,112 @@
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Kelola Admin</h1>
+                        <h1 class="mt-4">Detail Barang</h1>
                     </div>
 
-                    <!-- Content Row -->
-                    <div class="row">
 
                     <!-- Begin Page Content -->
                 <div class="container-fluid">
 
-                <!-- Page Heading -->
-                <p class="mb-4">Jumlah Admin saat ini.</p>
-
                 <!-- DataTales Example -->
                 <div class="card shadow mb-4">
-                    <div class="card-header py-3">
-                        <h6 class="m-0 font-weight-bold text-primary">Tabel Data Kelola Admin</h6>
+                    
+                    <div class="card mb-4 mt-4">
+                        <div class="card-header">
+                           <h2><?=$namabarang;?></h2>
+                        </div>
+                        <div class="card-body">
+                            <div class="row">
+                                <div class="col-md-3">Deskripsi</div>
+                                <div class="col-md-9">: <?=$deskripsi;?></div>
+                            </div>
+                            <div class="row">
+                                <div class="col-md-3">Stock</div>
+                                <div class="col-md-9">: <?=$stock;?></div>
+                            </div>
+
+                            <br><br>
+
+                        </div>
                     </div>
 
-                <!-- Button to Open the Modal -->
-                <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                Tambah Admin
-                </button>
-                <br>
-               
-                    <div class="card-body">
+                   <br><br><hr>
+                    <h3>Barang Masuk</h3>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="barangmasuk" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Tanggal</th>
+                                        <th>Keterangan</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
 
-
-                <div class="table-responsive">
-                    <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
-                        <thead>
-                            <tr>
-                                <th>No</th>
-                                <th>Email Admin</th>
+                                    <?php
+                                    $ambildatamasuk = mysqli_query($conn,"SELECT * FROM masuk WHERE idbarang='$idbarang'");
+                                    $i = 1;
                                 
-                                <th>Aksi</th>
-                            </tr>
-                        </thead>
-                        <tbody>
+                                while($fetch=mysqli_fetch_array($ambildatamasuk)){
+                                    $tanggal = $fetch['tanggal'];
+                                    $keterangan = $fetch['keterangan'];
+                                    $quantity = $fetch['qty'];
+                                    ?>
 
-                            <?php
-                            $ambilsemuadataadmin = mysqli_query($conn, "SELECT * FROM login");
-                            $i = 1;
-                            while ($data = mysqli_fetch_array($ambilsemuadataadmin)) {
-                                $em = $data['email'];
-                                $iduser = $data['iduser'];
-                                $pw = $data['password'];
-                               
-                            ?>
-
-                            <tr>
-                                <td><?=$i++;?></td>
-                                <td><?=$em;?></td>
-                                <td>
-                                    <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?=$iduser;?>">Edit</button>
-                                    <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?=$iduser;?>">Delete</button>
-                                </td>
-                            </tr>
-
-                            <!-- Edit Modal -->
-                            <div class="modal fade" id="edit<?=$iduser;?>">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                    
-                                        <!-- Modal Header -->
-                                        <div class="modal-header">
-                                            <h4 class="modal-title">Edit Admin</h4>
-                                            <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
+                                    <tr>
+                                        <td><?=$i++;?></td>
+                                        <td><?=$tanggal;?></td>
+                                        <td><?=$keterangan;?></td>
+                                        <td><?=$quantity;?></td>
+                                    </tr>
                                         
-                                        <!-- Modal body -->
-                                        <form method="post">
-                                            <div class="modal-body">
-                                                <input type="email" name="emailadmin" value="<?=$em; ?>" class="form-control" placeholder="Email" required>
-                                                <br>
-                                                <input type="password" name="passwordbaru" class="form-control" value="<?=$pw; ?>" placeholder="Password">
-                                                <br>
-                                                <input type="hidden" name="id" value="<?=$iduser;?>">
-                                                <button type="submit" class="btn btn-primary" name="updateadmin">Submit</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
+                                    <?php
+                                    };
+                                    ?>
+        
+                                </tbody>
+                            </table>
+                        </div>
+                        <br><br>
 
-                            <!-- Delete Modal -->
-                            <div class="modal fade" id="delete<?=$iduser;?>">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
+                        <h3>Barang Keluar</h3>
+                        <div class="table-responsive">
+                            <table class="table table-bordered" id="barangkeluar" width="100%" cellspacing="0">
+                                <thead>
+                                    <tr>
+                                        <th>No</th>
+                                        <th>Tanggal</th>
+                                        <th>penerima</th>
+                                        <th>Quantity</th>
+                                    </tr>
+                                </thead>
+                                <tbody>
+
+                                    <?php
+                                    $ambildatakeluar = mysqli_query($conn,"SELECT * FROM keluar WHERE idbarang='$idbarang'");
+                                    $i = 1;
+                                
+                                while($fetch=mysqli_fetch_array($ambildatakeluar)){
+                                    $tanggal = $fetch['tanggal'];
+                                    $penerima = $fetch['penerima'];
+                                    $quantity = $fetch['qty'];
+                                    ?>
+
+                                    <tr>
+                                        <td><?=$i++;?></td>
+                                        <td><?=$tanggal;?></td>
+                                        <td><?=$penerima;?></td>
+                                        <td><?=$quantity;?></td>
+                                    </tr>
                                     
-                                        <!-- Modal Header -->
-                                        <div class="modal-header">
-                                        <h4 class="modal-title">Hapus Admin</h4>
-                                        <button type="button" class="close" data-dismiss="modal">&times;</button>
-                                        </div>
-                                        
-                                        <!-- Modal body -->
-                                        <form method="post">
-                                            <div class="modal-body">
-                                                Apakah Anda yakin ingin menghapus <?=$em;?>?
-                                                <input type="hidden" name="id" value="<?=$iduser;?>">
-                                                <br><br>
-                                                <button type="submit" class="btn btn-danger" name="hapusadmin">Hapus</button>
-                                            </div>
-                                        </form>
-                                    </div>
-                                </div>
-                            </div>
-                            
-                            <?php
-                            };
-                            ?>
-  
-                        </tbody>
-                    </table>
-                </div>
+                                    <?php
+                                    };
+                                    ?>
+        
+                                </tbody>
+                            </table>
+                        </div>
             </div>
         </div>
     </div>
@@ -274,21 +275,23 @@
         
                 <!-- Modal Header -->
                 <div class="modal-header">
-                    <h4 class="modal-title">Tambah Admin</h4>
+                    <h4 class="modal-title">Tambah Barang</h4>
                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                 </div>
                 
                 <!-- Modal body -->
                 <form method="post">
                     <div class="modal-body">
-                        <input type="email" name="email" placeholder="Email" class="form-control" required>
+                        <input type="text" name="namabarang" placeholder="Nama Barang" class="form-control" required>
                         <br>
-                        <input type="password" name="password" placeholder="Password" class="form-control" required>
+                        <input type="text" name="deskripsi" placeholder="Deskripsi Barang" class="form-control" required>
+                        <br>
+                        <input type="number" name="stock" placeholder="stock" class="form-control" required> 
                     </div>
 
                     <!-- Modal footer -->
                     <div class="modal-footer">
-                        <button type="submit" class="btn btn-primary" name="addadmin">Submit</button>
+                        <button type="submit" class="btn btn-primary" name="addnewbarang">Submit</button>
                         <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                     </div>
                 </form>
