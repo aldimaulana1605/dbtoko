@@ -165,7 +165,7 @@ require 'cek.php';
 
                                 <!-- Filter by date-->
                                 <div class="col"></div>
-                                <form action="post" class="form-inline">
+                                <form method="post" class="form-inline">
                                     <input type="date" name="tgl_mulai" class="form-control">
                                     <input type="date" name="tgl_selesai" class="form-control ml-3">
                                     <button type="submit" name="filter_tgl" class="btn btn-info ml-3">Filter</button>
@@ -194,7 +194,20 @@ require 'cek.php';
                                             </thead>
                                             <tbody>
                                                 <?php
-                                                $ambilsemuadatastock = mysqli_query($conn, "SELECT * FROM keluar k, stock s WHERE s.idbarang = k.idbarang");
+                                                if (isset($_POST['filter_tgl'])) {
+                                                    $mulai = $_POST['tgl_mulai'];
+                                                    $selesai = $_POST['tgl_selesai'];
+
+                                                    if ($mulai != null || $selesai != null) {
+
+                                                        $ambilsemuadatastock = mysqli_query($conn, "SELECT * FROM keluar k, stock s WHERE s.idbarang = k.idbarang AND tanggal BETWEEN '$mulai' AND DATE_ADD('$selesai',INTERVAL 1 DAY) ORDER BY idkeluar DESC");
+                                                    } else {
+                                                        $ambilsemuadatastock = mysqli_query($conn, "SELECT * FROM keluar k, stock s WHERE s.idbarang = k.idbarang ORDER BY idkeluar DESC");
+                                                    }
+                                                } else {
+                                                    $ambilsemuadatastock = mysqli_query($conn, "SELECT * FROM keluar k, stock s WHERE s.idbarang = k.idbarang ORDER BY idkeluar DESC");
+                                                }
+
                                                 while ($data = mysqli_fetch_array($ambilsemuadatastock)) {
                                                     $idk = $data['idkeluar'];
                                                     $idb = $data['idbarang'];

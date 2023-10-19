@@ -100,10 +100,12 @@ if (isset($_POST['updatebarangmasuk'])) {
     $deskripsi = $_POST['keterangan'];
     $qty = $_POST['qty'];
 
+    // mengambil stock barang saat ini
     $lihatstock = mysqli_query($conn, "SELECT * FROM stock WHERE idbarang='$idb'");
     $stocknya = mysqli_fetch_array($lihatstock);
     $stockskrg = $stocknya['stock'];
 
+    // qty barang masuk saat ini
     $qtyskrg = mysqli_query($conn, "SELECT * FROM masuk WHERE idmasuk='$idm'");
     $qtynya = mysqli_fetch_array($qtyskrg);
     $qtyskrg = $qtynya['qty'];
@@ -163,10 +165,12 @@ if (isset($_POST['updatebarangkeluar'])) {
     $penerima = $_POST['penerima'];
     $qty = $_POST['qty'];
 
+    // mengambil stock barang saat ini
     $lihatstock = mysqli_query($conn, "SELECT * FROM stock WHERE idbarang='$idb'");
     $stocknya = mysqli_fetch_array($lihatstock);
     $stockskrg = $stocknya['stock'];
 
+    // qty barang keluar saat ini
     $qtyskrg = mysqli_query($conn, "SELECT * FROM keluar WHERE idkeluar='$idk'");
     $qtynya = mysqli_fetch_array($qtyskrg);
     $qtyskrg = $qtynya['qty'];
@@ -174,13 +178,23 @@ if (isset($_POST['updatebarangkeluar'])) {
     if ($qty > $qtyskrg) {
         $selisih = $qty - $qtyskrg;
         $kurangin = $stockskrg - $selisih;
-        $kurangistocknya = mysqli_query($conn, "UPDATE stock SET stock='$kurangin' WHERE idbarang='$idb'");
-        $updatenya = mysqli_query($conn, "UPDATE keluar SET qty='$qty', penerima='$penerima' WHERE idkeluar='$idk'");
-        if ($kurangistocknya && $updatenya) {
-            header('location:keluar.php');
+
+        if ($selisih <= $stockskrg) {
+
+            $kurangistocknya = mysqli_query($conn, "UPDATE stock SET stock='$kurangin' WHERE idbarang='$idb'");
+            $updatenya = mysqli_query($conn, "UPDATE keluar SET qty='$qty', penerima='$penerima' WHERE idkeluar='$idk'");
+            if ($kurangistocknya && $updatenya) {
+                header('location:keluar.php');
+            } else {
+                echo 'Gagal';
+                header('location:keluar.php');
+            }
         } else {
-            echo 'Gagal';
-            header('location:keluar.php');
+            echo '
+                <script>alert("Stock tidak mencukupi");
+                window.location.href="keluar.php";
+                </script>
+                ';
         }
     } else {
         $selisih = $qtyskrg - $qty;
