@@ -276,3 +276,47 @@ if (isset($_POST['hapusadmin'])) {
         header('Location:admin.php');
     }
 }
+
+// menambah supplier baru
+if (isset($_POST['addsupplier'])) {
+    $namasupplier = $_POST['namasupplier'];
+    $notelp = $_POST['notelp'];
+
+    $queryinsert = mysqli_query($conn, "INSERT INTO supplier (namasupplier,notelp) VALUES ('$namasupplier','$notelp')");
+
+    if ($queryinsert) {
+        // if berhasil
+        header('Location:supplier.php');
+    } else {
+        // kalau gagal insert ke db
+        header('Location:supplier.php');
+    }
+}
+
+// edit data supplier
+if (isset($_POST['updatesupplier'])) {
+    $supplierbaru = $_POST['supplierbaru'];
+    $notelpbaru = $_POST['notelpbaru'];
+    $idsuppnya = $_POST['idsupp'];
+
+    $queryupdate = mysqli_query($conn, "UPDATE supplier SET namasupplier='$supplierbaru', notelp='$notelpbaru' WHERE idsupplier='$idsuppnya'");
+
+    if ($queryupdate) {
+        header('Location:supplier.php');
+    } else {
+        header('Location:supplier.php');
+    }
+}
+
+// hapus supplier
+if (isset($_POST['hapussupplier'])) {
+    $idsupp = $_POST['idsupp'];
+
+    $querydelete = mysqli_query($conn, "DELETE FROM supplier WHERE idsupplier='$idsupp'");
+
+    if ($querydelete) {
+        header('Location:supplier.php');
+    } else {
+        header('Location:supplier.php');
+    }
+}

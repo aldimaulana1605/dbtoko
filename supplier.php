@@ -73,7 +73,7 @@ require 'cek.php';
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - Kelola Admin -->
-            <li class="nav-item active">
+            <li class="nav-item">
                 <a class="nav-link" href="admin.php">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Kelola Admin</span>
@@ -84,7 +84,7 @@ require 'cek.php';
             <hr class="sidebar-divider my-0">
 
             <!-- Nav Item - kelola Supplier -->
-            <li class="nav-item">
+            <li class="nav-item active">
                 <a class="nav-link" href="supplier.php">
                     <i class="fas fa-fw fa-cat"></i>
                     <span>Kelola Supplier</span>
@@ -156,7 +156,7 @@ require 'cek.php';
 
                     <!-- Page Heading -->
                     <div class="d-sm-flex align-items-center justify-content-between mb-4">
-                        <h1 class="h3 mb-0 text-gray-800">Kelola Admin</h1>
+                        <h1 class="h3 mb-0 text-gray-800">Kelola Supplier</h1>
                     </div>
 
                     <!-- Content Row -->
@@ -166,17 +166,17 @@ require 'cek.php';
                         <div class="container-fluid">
 
                             <!-- Page Heading -->
-                            <p class="mb-4">Jumlah Admin saat ini.</p>
+                            <p class="mb-4">Jumlah Supplier saat ini.</p>
 
                             <!-- DataTales Example -->
                             <div class="card shadow mb-4">
                                 <div class="card-header py-3">
-                                    <h6 class="m-0 font-weight-bold text-primary">Tabel Data Kelola Admin</h6>
+                                    <h6 class="m-0 font-weight-bold text-primary">Tabel Data Kelola Supplier</h6>
                                 </div>
 
                                 <!-- Button to Open the Modal -->
                                 <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#myModal">
-                                    Tambah Admin
+                                    Tambah Supplier
                                 </button>
                                 <br>
 
@@ -188,52 +188,53 @@ require 'cek.php';
                                             <thead>
                                                 <tr>
                                                     <th>No</th>
-                                                    <th>Email Admin</th>
-
+                                                    <th>Nama Supplier</th>
+                                                    <th>No Telp</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
                                             <tbody>
 
                                                 <?php
-                                                $ambilsemuadataadmin = mysqli_query($conn, "SELECT * FROM login");
+                                                $ambilsemuadatasupplier = mysqli_query($conn, "SELECT * FROM supplier");
                                                 $i = 1;
-                                                while ($data = mysqli_fetch_array($ambilsemuadataadmin)) {
-                                                    $em = $data['email'];
-                                                    $iduser = $data['iduser'];
-                                                    $pw = $data['password'];
+                                                while ($data = mysqli_fetch_array($ambilsemuadatasupplier)) {
+                                                    $idsupplier = $data['idsupplier'];
+                                                    $namasupplier = $data['namasupplier'];
+                                                    $notelp = $data['notelp'];
 
                                                 ?>
 
                                                     <tr>
                                                         <td><?= $i++; ?></td>
-                                                        <td><?= $em; ?></td>
+                                                        <td><?= $namasupplier; ?></td>
+                                                        <td><?= $notelp; ?></td>
                                                         <td>
-                                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $iduser; ?>">Edit</button>
-                                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $iduser; ?>">Delete</button>
+                                                            <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $idsupplier; ?>">Edit</button>
+                                                            <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $idsupplier; ?>">Delete</button>
                                                         </td>
                                                     </tr>
 
                                                     <!-- Edit Modal -->
-                                                    <div class="modal fade" id="edit<?= $iduser; ?>">
+                                                    <div class="modal fade" id="edit<?= $idsupplier; ?>">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
 
                                                                 <!-- Modal Header -->
                                                                 <div class="modal-header">
-                                                                    <h4 class="modal-title">Edit Admin</h4>
+                                                                    <h4 class="modal-title">Edit Supplier</h4>
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                 </div>
 
                                                                 <!-- Modal body -->
                                                                 <form method="post">
                                                                     <div class="modal-body">
-                                                                        <input type="email" name="emailadmin" value="<?= $em; ?>" class="form-control" placeholder="Email" required>
+                                                                        <input type="text" name="supplierbaru" value="<?= $namasupplier; ?>" class="form-control" placeholder="Nama Supplier" required>
                                                                         <br>
-                                                                        <input type="password" name="passwordbaru" class="form-control" value="<?= $pw; ?>" placeholder="Password">
+                                                                        <input type="text" name="notelpbaru" class="form-control" value="<?= $notelp; ?>" placeholder="No Telpon">
                                                                         <br>
-                                                                        <input type="hidden" name="id" value="<?= $iduser; ?>">
-                                                                        <button type="submit" class="btn btn-primary" name="updateadmin">Submit</button>
+                                                                        <input type="hidden" name="idsupp" value="<?= $idsupplier; ?>">
+                                                                        <button type="submit" class="btn btn-primary" name="updatesupplier">Submit</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -241,23 +242,23 @@ require 'cek.php';
                                                     </div>
 
                                                     <!-- Delete Modal -->
-                                                    <div class="modal fade" id="delete<?= $iduser; ?>">
+                                                    <div class="modal fade" id="delete<?= $idsupplier; ?>">
                                                         <div class="modal-dialog">
                                                             <div class="modal-content">
 
                                                                 <!-- Modal Header -->
                                                                 <div class="modal-header">
-                                                                    <h4 class="modal-title">Hapus Admin</h4>
+                                                                    <h4 class="modal-title">Hapus Supplier</h4>
                                                                     <button type="button" class="close" data-dismiss="modal">&times;</button>
                                                                 </div>
 
                                                                 <!-- Modal body -->
                                                                 <form method="post">
                                                                     <div class="modal-body">
-                                                                        Apakah Anda yakin ingin menghapus <?= $em; ?>?
-                                                                        <input type="hidden" name="id" value="<?= $iduser; ?>">
+                                                                        Apakah Anda yakin ingin menghapus <?= $namasupplier; ?>?
+                                                                        <input type="hidden" name="idsupp" value="<?= $idsupplier; ?>">
                                                                         <br><br>
-                                                                        <button type="submit" class="btn btn-danger" name="hapusadmin">Hapus</button>
+                                                                        <button type="submit" class="btn btn-danger" name="hapussupplier">Hapus</button>
                                                                     </div>
                                                                 </form>
                                                             </div>
@@ -281,21 +282,21 @@ require 'cek.php';
 
                                     <!-- Modal Header -->
                                     <div class="modal-header">
-                                        <h4 class="modal-title">Tambah Admin</h4>
+                                        <h4 class="modal-title">Tambah Supplier</h4>
                                         <button type="button" class="close" data-dismiss="modal">&times;</button>
                                     </div>
 
                                     <!-- Modal body -->
                                     <form method="post">
                                         <div class="modal-body">
-                                            <input type="email" name="email" placeholder="Email" class="form-control" required>
+                                            <input type="text" name="namasupplier" placeholder="Nama Supplier" class="form-control" required>
                                             <br>
-                                            <input type="password" name="password" placeholder="Password" class="form-control" required>
+                                            <input type="text" name="notelp" placeholder="No Telp" class="form-control" required>
                                         </div>
 
                                         <!-- Modal footer -->
                                         <div class="modal-footer">
-                                            <button type="submit" class="btn btn-primary" name="addadmin">Submit</button>
+                                            <button type="submit" class="btn btn-primary" name="addsupplier">Submit</button>
                                             <button type="button" class="btn btn-danger" data-dismiss="modal">Close</button>
                                         </div>
                                     </form>

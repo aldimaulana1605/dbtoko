@@ -77,11 +77,22 @@ require 'cek.php';
             <!-- Divider -->
             <hr class="sidebar-divider my-0">
 
-            <!-- Nav Item - Barang Keluar -->
+            <!-- Nav Item - Kelola Admin -->
             <li class="nav-item">
                 <a class="nav-link" href="admin.php">
                     <i class="fas fa-fw fa-book"></i>
                     <span>Kelola Admin</span>
+                </a>
+            </li>
+
+            <!-- Divider -->
+            <hr class="sidebar-divider my-0">
+
+            <!-- Nav Item - kelola Supplier -->
+            <li class="nav-item">
+                <a class="nav-link" href="supplier.php">
+                    <i class="fas fa-fw fa-cat"></i>
+                    <span>Kelola Supplier</span>
                 </a>
             </li>
 
