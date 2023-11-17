@@ -199,7 +199,7 @@ require 'cek.php';
                                                     <th>Tanggal</th>
                                                     <th>Nama Barang</th>
                                                     <th>Jumlah</th>
-                                                    <th>Penerima</th>
+                                                    <th>Pembeli</th>
                                                     <th>Aksi</th>
                                                 </tr>
                                             </thead>
@@ -225,14 +225,14 @@ require 'cek.php';
                                                     $tanggal = $data['tanggal'];
                                                     $namabarang = $data['namabarang'];
                                                     $qty = $data['qty'];
-                                                    $penerima = $data['penerima'];
+                                                    $pembeli = $data['pembeli'];
                                                 ?>
 
                                                     <tr>
                                                         <td><?= $tanggal; ?></td>
                                                         <td><?= $namabarang; ?></td>
                                                         <td><?= $qty; ?></td>
-                                                        <td><?= $penerima; ?></td>
+                                                        <td><?= $pembeli; ?></td>
                                                         <td>
                                                             <button type="button" class="btn btn-warning" data-toggle="modal" data-target="#edit<?= $idk; ?>">Edit</button>
                                                             <button type="button" class="btn btn-danger" data-toggle="modal" data-target="#delete<?= $idk; ?>">Delete</button>
@@ -253,7 +253,7 @@ require 'cek.php';
                                                                 <!-- Modal body -->
                                                                 <form method="post">
                                                                     <div class="modal-body">
-                                                                        <input type="text" name="penerima" value="<?= $penerima; ?>" class="form-control" required>
+                                                                        <input type="text" name="pembeli" value="<?= $pembeli; ?>" class="form-control" required>
                                                                         <br>
                                                                         <input type="number" name="qty" value="<?= $qty; ?>" class="form-control" required>
                                                                         <br>
@@ -334,7 +334,7 @@ require 'cek.php';
                                             <br>
                                             <input type="number" name="qty" placeholder="Quantity" class="form-control" required>
                                             <br>
-                                            <input type="text" name="penerima" placeholder="Penerima" class="form-control" required>
+                                            <input type="text" name="pembeli" placeholder="Pembeli" class="form-control" required>
                                         </div>
 
                                         <!-- Modal footer -->
