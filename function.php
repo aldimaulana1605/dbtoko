@@ -142,7 +142,7 @@ if (isset($_POST['hapusbarangmasuk'])) {
     $qty = $_POST['kty'];
     $idm = $_POST['idm'];
 
-    $getdatastock = mysqli_query($conn, "SELECT * FROM stock WHERE idbarang='$id'");
+    $getdatastock = mysqli_query($conn, "SELECT * FROM stock WHERE idbarang='$idb'");
     $data = mysqli_fetch_array($getdatastock);
     $stok = $data['stock'];
 
@@ -217,7 +217,7 @@ if (isset($_POST['hapusbarangkeluar'])) {
     $qty = $_POST['kty'];
     $idk = $_POST['idk'];
 
-    $getdatastock = mysqli_query($conn, "SELECT * FROM stock WHERE idbarang='$id'");
+    $getdatastock = mysqli_query($conn, "SELECT * FROM stock WHERE idbarang='$idb'");
     $data = mysqli_fetch_array($getdatastock);
     $stok = $data['stock'];
 
